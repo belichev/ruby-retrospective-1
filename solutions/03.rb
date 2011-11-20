@@ -8,7 +8,7 @@ class Product
     @name, @price = name, price
   end
   
-  def counted_price( count )
+  def counted_price(count)
     count * price
   end
 end
@@ -161,7 +161,7 @@ class Inventory
     products.has_key? name
   end
   
-  def register(name, price='0', promotion = {})
+  def register(name, price = '0', promotion = {})
     raise "'#{name}' is in inventory!." if has_product? name
     raise "Invalid name passed" if name.length > 40
     raise "Invalid price passed - too low" unless price.to_d.round(2) > 0
@@ -255,7 +255,7 @@ class InvoiceRow
     @cart_item = cart_item_param
   end
   
-  def InvoiceRow.generate(name, count, price, message='', discount='')
+  def InvoiceRow.generate(name, count, price, message = '', discount = '')
     name, count  = name.ljust(40), count.to_s.rjust(4)
     price = price.to_s.rjust(8)
     product, promotion = "| #{name}  #{count} | #{price} |\n", ''
